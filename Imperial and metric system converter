@@ -1,0 +1,122 @@
+/*
+
+
+ * Pseudocode or Algorithm for the program:
+    (be sure to indent items with control structure)
+    (need to match flow chart submitted in documentation)
+  1.ask user to enter country
+  2.display converter tool kit and ask what user would like to do
+  3.ask user to select option
+  4.if user selects option 1 ask for temp in celsius
+  5.convert to fahrenheit and display result
+  6.thank user and end program
+  7.if user chooses 2 convert distance from kilometers to miles
+  8.display result end program
+  9.if user chose 3 convert weight from kilograms to pounds
+ 10.mention users country
+ 11.then display result and cout thank user and end program
+ 12.if the user chose 4 end programs display a thank you message.
+ (more as needed)
+*/
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+
+{
+    // Here im intializing my varibbles
+    int choice;
+    double dist, weight, temp;
+    string country;
+    
+    
+    // Intializing  constants varibles
+    const string programmer = "Anthony Rosario";
+  
+
+    
+    // The user must enter a country name
+    cout << "Enter a country Name: ";
+    getline(cin, country);
+    
+    
+    
+    
+    // The user must enter a number to select a menu option
+    cout << "\n\nConverter Toolkit\n";
+    cout << "-----------------\n";
+
+    cout << "1. Temperature converter\n";
+    cout << "2. Distance converter\n";
+    cout << "3. Weight converter\n";
+    cout << "4. Quit\n\n";
+
+    cout << "Enter your choice (1-4): ";
+    cin >> choice;
+
+    
+    //switch selection control structure
+    switch (choice) {
+    
+    // the user must enter temperature in Celsius
+    case 1:
+            
+        cout << "Please enter temperature in celsius (such as 24): ";
+        cin >> temp;
+        cout << "It is " << fixed << setprecision(0) << (9.0 / 5) * temp + 32 << " in Fahrenheit.\n\n";
+            
+        break;
+
+    // the user must enter distance in Kilometer if vale is negative display error
+    case 2:
+        cout << "Please enter the distance in Kilometers (such as 18.54): ";
+        cin >> dist;
+
+        if (dist < 0)
+        {
+            cout << "!!! Program does not convert negative distance !!!\n\n";
+        }
+        else if (dist > 0)
+        {
+            
+            cout << "it is " << fixed << setprecision(2) << dist * .6 << " in miles. \n\n";
+        }
+        break;
+            
+    // the user must enter weight in Kilograms if vale is negative display error
+    case 3:
+        if (choice == 3)
+        {
+
+            cout << "Please enter the weight in kilograms: ";
+            cin >> weight;
+
+            if (weight < 0)
+            {
+                cout << "!!! Program does not convert negative weight !!!\n\n";
+            }
+            else if (weight > 0)
+         
+            cout << "It is " << fixed << setprecision(1) << weight * 2.2 << " in pounds\n\n";
+        }
+        break;
+    
+    // User decides to end program
+    case 4:
+        cout << "You have decided to quit." << endl << endl;
+            
+    default:
+        cout << "Invalid input" <<endl << endl;
+        break;
+    }
+
+    // Display constants and info
+    cout << country << " sounds fun!\n\n\n";
+    cout << "Thank you for testing my program!!\n";
+    cout << "PROGRAMMER: " << programmer << endl; 
+    return 0;
+}
